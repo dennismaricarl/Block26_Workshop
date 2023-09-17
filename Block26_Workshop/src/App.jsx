@@ -6,17 +6,19 @@ import SelectedContact from './Components/SelectedContact';
 
 export default function App() {
   const [selectedContactId, setSelectedContactId] = useState(null);
+
   return (
     <>
-      {selectedContactId 
-      ? (<SelectedContact contact={selectedContactId} setSelectedContactId={setSelectedContactId}/>)
-      : (<ContactList />)}
+      {selectedContactId ? (
+      <SelectedContact 
+        selectedContactId={selectedContactId}
+        setSelectedContactId={setSelectedContactId}
+      />)
+      : (
+      <ContactList 
+        setSelectedContactId={setSelectedContactId}/>)}
 
-      {/* <ContactView contact={selectedContactId}/>
-      {ContactList.map(contact => (
-        <ContactRow contact={contact}
-        onSelect={setSelectedContactId}/> */}
-      {/* ))} */}
+      
     </>
   );
 }
